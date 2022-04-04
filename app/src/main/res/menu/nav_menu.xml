@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/workout_plans"
+        android:title="Workout Plans"
+        android:icon="@drawable/ic_baseline_fitness_24"/>
+    <item
+        android:id="@+id/water_tracker"
+        android:title="Water Tracker"
+        android:icon="@drawable/ic_baseline_local_drink_24"/>
+    <item
+        android:id="@+id/calorie_counter"
+        android:title="Calorie Counter"
+        android:icon="@drawable/ic_baseline_fastfood_24"/>
+    <item
+        android:id="@+id/progress_report"
+        android:title="Progress Report"
+        android:icon="@drawable/ic_baseline_progress_24"/>
+    <item
+        android:id="@+id/Reminders"
+        android:title="Reminders"
+        android:icon="@drawable/ic_baseline_alarm_24"/>
+    <item
+        android:id="@+id/faq"
+        android:title="FAQs"
+        android:icon="@drawable/ic_baseline_question_24"/>
+    <item
+        android:id="@+id/logout"
+        android:title="Log Out"
+        android:icon="@drawable/ic_baseline_arrow_back_ios_24"/>
+    <item
+        android:id="@+id/update_profile"
+        android:title="Update Profile"
+        android:icon="@drawable/ic_baseline_edit_24"/>
+    <item
+        android:id="@+id/delete_Account"
+        android:title="Delete Account"
+        android:icon="@drawable/ic_baseline_delete_forever_24"/>
+</menu>

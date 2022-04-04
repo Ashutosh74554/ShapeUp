@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2b2b2b"
+    tools:context=".PostActivity">
+
+    <ImageView
+        android:id="@+id/post_image"
+        android:layout_width="270dp"
+        android:layout_height="270dp"
+        android:background="@drawable/ic_baseline_add_a_photo_24"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="#C1C1C1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ProgressBar
+        android:id="@+id/post_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/post_image" />
+
+    <EditText
+        android:id="@+id/post_title"
+        android:layout_width="270dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="90dp"
+        android:textSize="18sp"
+        android:textColor="#ededed"
+        android:hint="Enter Caption..."
+        android:textColorHint="#CAC9C9"
+        app:layout_constraintTop_toBottomOf="@id/post_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/post_button"
+        android:layout_width="270dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/login_butt"
+        android:textColor="@color/white"
+        android:text="Post"
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/post_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

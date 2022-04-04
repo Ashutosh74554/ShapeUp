@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Shape Up</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="report"><u>See Report</u></string>
+
+    <string name="expand_1">You can repeat your daily workouts as you need. For beginners, we suggest that you exercise once a day 3–4 times a week. For experienced users, you can workout once or twice a day for 5–6 days a week. \n\nIf you are ill, injured or unable to exercise due to physical conditions, please consult your doctor before exercising.</string>
+    <string name="expand_2">We provide workout plans with different difficulty levels for you. You can adjust to a higher level workout if you want.\n\nBesides, you can use weights, such as holding dumbbells or water bottles when performing workouts. To avoid injury, you should start with a light weight, then gradually increase weights when your body adapts to the exercise.</string>
+    <string name="expand_3">Don\'t be anxious, you don\'t have to follow the scheduled workout too strictly day by day.\n\nIf you feel the workout too hard for you, you can repeat the day you feel appropriate and move to the next day when you are ready.\nListen to your body and adjust your workout. But don\'t be inconsistent.</string>
+    <string name="expand_4">Rome was not build in a day. The key to be fit is determination and persistence, and the completion of each movement is an improvement.\n\nWe recommend that you choose a goal that fits your fitness level and perform exercises under the guidance. In addition, low sugar and high-protein diet can maximize your results.</string>
+    <string name="expand_5">Yes, ofcourse. Warm-up is important before your workout. It helps you reduce injuries and improve your workout performance.\n\nCooling down after workout is also necessary, because it helps your body return to its normal state and even reduce the chance of muscle soreness.</string>
+    <string name="expand_6">Take it easy, missing one workout day wont derail your progress. You can count it as a rest day and continue the workout from the next day. Listen to your body, don\'t rush to catch up on the missing progress.\n\nHowever, don\'t make it a habit. Lack of motivation can hinder your progress. Workout reminder can help you stick to the workout</string>
+</resources>
