@@ -10,10 +10,6 @@
         android:title="Water Tracker"
         android:icon="@drawable/ic_baseline_local_drink_24"/>
     <item
-        android:id="@+id/calorie_counter"
-        android:title="Calorie Counter"
-        android:icon="@drawable/ic_baseline_fastfood_24"/>
-    <item
         android:id="@+id/progress_report"
         android:title="Progress Report"
         android:icon="@drawable/ic_baseline_progress_24"/>

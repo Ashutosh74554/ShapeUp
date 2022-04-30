@@ -154,8 +154,6 @@ public class UpdateProfile extends AppCompatActivity {
     }
 
     private void saveToFirestore(Task<UploadTask.TaskSnapshot> task, String name, Uri downloadUri) {
-
-
         HashMap<String, Object> map=new HashMap<>();
         map.put("Name", name);
         map.put("Image", downloadUri.toString());

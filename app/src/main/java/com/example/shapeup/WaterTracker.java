@@ -17,12 +17,7 @@ import java.util.Calendar;
 
 public class WaterTracker extends AppCompatActivity {
     ProgressBar pb;
-    SharedPreferences track;
-    SharedPreferences goal;
-    SharedPreferences.Editor editors;
-    SharedPreferences.Editor goalEditor;
-    final String water_tracker="Water logged";
-    final String goalSet="Goal set";
+
     TextView num, fixedTo, water_report;
     EditText goalSetter;
     Button set;
@@ -42,24 +37,19 @@ public class WaterTracker extends AppCompatActivity {
 
         fixedTo.setCursorVisible(false);
 
-        goal=getSharedPreferences(goalSet, Context.MODE_PRIVATE);
-        goalEditor=goal.edit();
+
 
         try{
-            pb.setMax(goal.getInt("goal", 0));
-            goalSetter.setText(""+goal.getInt("goal", 0));
-            fixedTo.setText("of "+goal.getInt("goal",0)+" glasses");
-            goalSetter.setText(""+goal.getInt("goal", 0));
+
         }catch(NullPointerException e){
             pb.setMax(12);
             fixedTo.setText("of "+12+" glasses");
-            goalEditor.putInt("goal", 12);
+
             fixedTo.setText("of "+12+" glasses");
-            goalEditor.apply();
+
         }
 
-        track=getSharedPreferences(water_tracker, Context.MODE_PRIVATE);
-        editors=track.edit();
+
 
         set.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,11 +62,10 @@ public class WaterTracker extends AppCompatActivity {
                 else{
                     goalSetter.setTextColor(getResources().getColor(R.color.teal_700));
                 }
-                goalEditor.putInt("goal", x);
+
                 fixedTo.setText("of "+x+" glasses");
                 fixedTo.setCursorVisible(false);
                 pb.setMax(x);
-                goalEditor.apply();
             }
         });
 
@@ -98,14 +87,12 @@ public class WaterTracker extends AppCompatActivity {
 
             num.setText("0");
             pb.setProgress(0);
-            editors.putInt("current",0);
-            editors.apply();
+
             editDate.putInt("today",day);
             editDate.apply();
         }
         else{
-            num.setText(""+track.getInt("current",0));
-            pb.setProgress(track.getInt("current",0));
+
         }
     }
 
@@ -113,9 +100,9 @@ public class WaterTracker extends AppCompatActivity {
         TextView st1 = findViewById(R.id.motivation);
         TextView st2 = findViewById(R.id.extraline);
         int x=Integer.parseInt(goalSetter.getText().toString());
-        int w=track.getInt("current", 0);
+        int w=0;
         w++;
-        editors.putInt("current", w);
+
         switch(w){
             case 1:st1.setText("Great Job! ");
                 st2.setText("Grab tour next 250ml of water in 60 min");
@@ -176,7 +163,6 @@ public class WaterTracker extends AppCompatActivity {
             st2.setText("Just "+(x-w)+" glasses left to reach goal");
             num.setText(""+w);
         }
-        editors.apply();
         pb.setProgress(w);
     }
     public void minus(View view){
@@ -184,10 +170,9 @@ public class WaterTracker extends AppCompatActivity {
         TextView st1 = findViewById(R.id.motivation);
         TextView st2 = findViewById(R.id.extraline);
         TextView num = findViewById(R.id.status);
-        int w=track.getInt("current", 0);
+        int w=0;
         if(w > 0)
             w--;
-        editors.putInt("current", w);
         if(w>x){
             num.setText(""+w);
         }
@@ -254,12 +239,10 @@ public class WaterTracker extends AppCompatActivity {
         else if(w == 0){
             st1.setText("");
             st2.setText("");
-            w=track.getInt("current", 0);
             num.setText(""+0);
             pb.setProgress(0);
         }
         else
             pb.setProgress(w);
-        editors.apply();
     }
 }

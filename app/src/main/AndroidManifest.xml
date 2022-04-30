@@ -15,10 +15,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShapeUp">
         <activity
-            android:name=".CommentsActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="Comments"
+            android:name=".Calories"
+            android:label="Calories Requirement Calculator"
+            android:parentActivityName=".ProgressReport"
             android:exported="false" />
+        <activity
+            android:name=".Bmi"
+            android:label="BMI Calculator"
+            android:parentActivityName=".ProgressReport"
+            android:exported="false" />
+        <activity
+            android:name=".Fats"
+            android:label="Fat Percentage Calculator"
+            android:parentActivityName=".ProgressReport"
+            android:exported="false" />
+        <activity
+            android:name=".CommentsActivity"
+            android:exported="false"
+            android:label="Comments"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".UpdateProfile"
             android:exported="false"
@@ -57,11 +72,6 @@
             android:name=".ProgressReport"
             android:exported="true"
             android:label="Progress Report"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".CalorieCounter"
-            android:exported="true"
-            android:label="Calorie Counter"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".WaterTracker"
