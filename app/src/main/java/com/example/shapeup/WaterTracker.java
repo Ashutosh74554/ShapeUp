@@ -37,19 +37,13 @@ import java.util.Map;
 
 public class WaterTracker extends AppCompatActivity {
     ProgressBar pb;
-//    SharedPreferences track;
-//    SharedPreferences goal;
-//    SharedPreferences.Editor editors;
-//    SharedPreferences.Editor goalEditor;
 
-    //edits
     FirebaseFirestore fstore;
     FirebaseAuth fAuth;
-
-
-//    final String water_tracker="Water logged";
-//    final String goalSet="Goal set";
     TextView num, fixedTo,goaledits;
+
+    TextView num, fixedTo, water_report;
+
     EditText goalSetter;
     Button set;
     String current;
@@ -73,13 +67,42 @@ public class WaterTracker extends AppCompatActivity {
         set=findViewById(R.id.setgoal);
         goaledits = findViewById(R.id.goaledits);
 
-
         if(num.getText().toString().isEmpty()){
             num.setText("0");
             pb.setProgress(0);
         }
 
         fixedTo.setCursorVisible(false);
+      
+        try{
+
+        }catch(NullPointerException e){
+            pb.setMax(12);
+            fixedTo.setText("of "+12+" glasses");
+
+            fixedTo.setText("of "+12+" glasses");
+
+        }
+
+
+
+        set.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int x=Integer.parseInt(goalSetter.getText().toString());
+                if(x<8){
+                    Toast.makeText(WaterTracker.this, "You should drink atleast 8 glasses", Toast.LENGTH_LONG).show();
+                    goalSetter.setTextColor(getResources().getColor(R.color.red));
+                }
+                else{
+                    goalSetter.setTextColor(getResources().getColor(R.color.teal_700));
+                }
+
+                fixedTo.setText("of "+x+" glasses");
+                fixedTo.setCursorVisible(false);
+                pb.setMax(x);
+            }
+        });
 
         Calendar c=Calendar.getInstance();
         int day=c.get(Calendar.DAY_OF_MONTH);
@@ -108,7 +131,6 @@ public class WaterTracker extends AppCompatActivity {
 
 
         if(day!=today) {
-            // TODO: add report to firebase
             FirebaseUser user = fAuth.getCurrentUser();
             DocumentReference dc=fstore.collection("WateRec").document(user.getUid());
             HashMap<String,Object> todays=new HashMap<>();
@@ -179,7 +201,6 @@ public class WaterTracker extends AppCompatActivity {
                     }
                 }
             });
-
         }
     }
 
@@ -189,8 +210,14 @@ public class WaterTracker extends AppCompatActivity {
         TextView st1 = findViewById(R.id.motivation);
         TextView st2 = findViewById(R.id.extraline);
         int x=Integer.parseInt(goalSetter.getText().toString());
+
         int w=Integer.parseInt(num.getText().toString());
         switch(w++){
+
+        int w=0;
+        w++;
+
+        switch(w){
             case 1:st1.setText("Great Job! ");
                 st2.setText("Grab tour next 250ml of water in 60 min");
                 num.setText(""+w);
@@ -270,13 +297,18 @@ public class WaterTracker extends AppCompatActivity {
         Map<String,Object> H2Oinfo = new HashMap<>();
         H2Oinfo.put(tds,""+w);
         db.set(H2Oinfo);
+
+        pb.setProgress(w);
     }
     public void minus(View view){
         int x=Integer.parseInt(goalSetter.getText().toString());
         TextView st1 = findViewById(R.id.motivation);
         TextView st2 = findViewById(R.id.extraline);
         TextView num = findViewById(R.id.status);
+
         int w=Integer.parseInt(num.getText().toString());;
+
+        int w=0;
         if(w > 0)
             w--;
         if(w>x){
@@ -346,7 +378,7 @@ public class WaterTracker extends AppCompatActivity {
         else if(w == 0){
             st1.setText("");
             st2.setText("");
-//            w=track.getInt("current", 0);
+
             num.setText(""+0);
             pb.setProgress(0);
         }
@@ -356,6 +388,7 @@ public class WaterTracker extends AppCompatActivity {
         }
         else{
             pb.setProgress(w);
+
             num.setText(""+w);
         }
 
@@ -372,5 +405,6 @@ public class WaterTracker extends AppCompatActivity {
         Map<String,Object> H2Oinfo = new HashMap<>();
         H2Oinfo.put(tds,""+w);
         db.set(H2Oinfo);
+
     }
 }
