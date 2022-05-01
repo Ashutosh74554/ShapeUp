@@ -50,6 +50,11 @@
             android:label="Comments"
             android:parentActivityName=".MainActivity" />
         <activity
+            android:name=".waterRep"
+            android:exported="false"
+            android:label="Reports"
+            android:parentActivityName=".WaterTracker" />
+        <activity
             android:name=".UpdateProfile"
             android:exported="false"
             android:label="Update Profile"

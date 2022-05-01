@@ -1,8 +1,11 @@
 package com.example.shapeup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -13,14 +16,38 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class WaterTracker extends AppCompatActivity {
     ProgressBar pb;
 
+    FirebaseFirestore fstore;
+    FirebaseAuth fAuth;
+    TextView num, fixedTo,goaledits;
+
     TextView num, fixedTo, water_report;
+
     EditText goalSetter;
     Button set;
+    String current;
+    int gg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +55,25 @@ public class WaterTracker extends AppCompatActivity {
         setContentView(R.layout.activity_water_tracker);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        //edits
+        fAuth = FirebaseAuth.getInstance();
+        fstore= FirebaseFirestore.getInstance();
+
+
         pb=findViewById(R.id.progressBar);
         num=findViewById(R.id.status);
         fixedTo=findViewById(R.id.target);
         goalSetter=findViewById(R.id.goalSet);
         set=findViewById(R.id.setgoal);
-        water_report=findViewById(R.id.water_report);
+        goaledits = findViewById(R.id.goaledits);
+
+        if(num.getText().toString().isEmpty()){
+            num.setText("0");
+            pb.setProgress(0);
+        }
 
         fixedTo.setCursorVisible(false);
-
-
-
+      
         try{
 
         }catch(NullPointerException e){
@@ -76,30 +111,109 @@ public class WaterTracker extends AppCompatActivity {
         SharedPreferences.Editor editDate=date.edit();
         int today=date.getInt("today",0);
 
-        water_report.setOnClickListener(new View.OnClickListener() {
+        fstore.collection("WateRec").document(fAuth.getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onClick(View view) {
-                // TODO: show firebase report of last week
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()){
+                    if(task.getResult().exists()){
+                        String x=task.getResult().getString("goal");
+                        gg=Integer.parseInt(x);
+                        goalSetter.setText(x);
+                        goaledits.setText(x);
+                    }
+                }
+                else{
+                    Toast.makeText(WaterTracker.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
+
+
         if(day!=today) {
-            // TODO: add report to firebase
+            FirebaseUser user = fAuth.getCurrentUser();
+            DocumentReference dc=fstore.collection("WateRec").document(user.getUid());
+            HashMap<String,Object> todays=new HashMap<>();
+            todays.put("drinking","0");
+            todays.put("goal",""+gg);
+            dc.set(todays).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(WaterTracker.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
 
             num.setText("0");
             pb.setProgress(0);
-
             editDate.putInt("today",day);
             editDate.apply();
         }
         else{
+            FirebaseUser user = fAuth.getCurrentUser();
+            fstore.collection("WateRec").document(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if(task.isSuccessful()){
+                        if(task.getResult().exists()){
+                            current=task.getResult().getString("drinking");
+                            String goals=task.getResult().getString("goal");
+                            goaledits.setText(goals);
+                            int g=Integer.parseInt(goals);
+                            pb.setMax(Integer.parseInt(goals));
+                            num.setText(current);
+                            goalSetter.setText(""+g);
+                            pb.setProgress(Integer.parseInt(current));
+                        }
+                    }
+                }
+            });
 
+
+            set.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    try {
+                        gg = Integer.parseInt(goalSetter.getText().toString());
+                        if(gg<8){
+                            Toast.makeText(WaterTracker.this, "You should drink atleast 8 glasses", Toast.LENGTH_LONG).show();
+                            goalSetter.setTextColor(getResources().getColor(R.color.red));
+                        }
+                        else{
+                            goalSetter.setTextColor(getResources().getColor(R.color.teal_700));
+                        }
+                        goaledits.setText(""+gg);
+                        pb.setMax(gg);
+                        pb.setProgress(Integer.parseInt(current));
+                        FirebaseUser currentUser = fAuth.getCurrentUser();
+                        DocumentReference df = fstore.collection("WateRec").document(currentUser.getUid());
+                        Map<String, Object> goalInfo = new HashMap<>();
+                        goalInfo.put("goal", ""+gg);
+                        goalInfo.put("drinking",current);
+                        df.set(goalInfo);
+                    }catch(NumberFormatException e){
+                        Toast.makeText(WaterTracker.this, "Goals of glasses should be in number", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }
     }
+
+
 
     public void add(View view){
         TextView st1 = findViewById(R.id.motivation);
         TextView st2 = findViewById(R.id.extraline);
         int x=Integer.parseInt(goalSetter.getText().toString());
+
+        int w=Integer.parseInt(num.getText().toString());
+        switch(w++){
+
         int w=0;
         w++;
 
@@ -157,12 +271,33 @@ public class WaterTracker extends AppCompatActivity {
             num.setText("" + w);
             st1.setText("You made it!");
             st2.setText("You reached your goal");
+            pb.setProgress(pb.getMax());
         }
         else if(w<x && w>12){
             st1.setText("Come on!");
             st2.setText("Just "+(x-w)+" glasses left to reach goal");
             num.setText(""+w);
+            pb.setProgress(w);
         }
+        else {
+            pb.setProgress(w);
+            num.setText(""+w);
+        }
+
+        FirebaseUser user = fAuth.getCurrentUser();
+        DocumentReference df = fstore.collection("WateRec").document(user.getUid());
+        Map<String ,Object> currentglass = new HashMap<>();
+        currentglass.put("drinking",""+w);
+        currentglass.put("goal",""+gg);
+        df.set(currentglass);
+
+        DocumentReference db = fstore.collection("WateRec1").document(user.getUid());
+        LocalDate td = LocalDate.now();
+        String tds = td.format(DateTimeFormatter.ISO_DATE);
+        Map<String,Object> H2Oinfo = new HashMap<>();
+        H2Oinfo.put(tds,""+w);
+        db.set(H2Oinfo);
+
         pb.setProgress(w);
     }
     public void minus(View view){
@@ -170,6 +305,9 @@ public class WaterTracker extends AppCompatActivity {
         TextView st1 = findViewById(R.id.motivation);
         TextView st2 = findViewById(R.id.extraline);
         TextView num = findViewById(R.id.status);
+
+        int w=Integer.parseInt(num.getText().toString());;
+
         int w=0;
         if(w > 0)
             w--;
@@ -235,14 +373,38 @@ public class WaterTracker extends AppCompatActivity {
             st1.setText("Come on!");
             st2.setText("Just "+(x-w)+" glasses left to reach goal");
             num.setText(""+w);
+            pb.setProgress(w);
         }
         else if(w == 0){
             st1.setText("");
             st2.setText("");
+
             num.setText(""+0);
             pb.setProgress(0);
         }
-        else
+        else if(w>=x){
+            num.setText(""+w);
+            pb.setProgress(pb.getMax());
+        }
+        else{
             pb.setProgress(w);
+
+            num.setText(""+w);
+        }
+
+        FirebaseUser user = fAuth.getCurrentUser();
+        DocumentReference df = fstore.collection("WateRec").document(user.getUid());
+        Map<String ,Object> currentglass = new HashMap<>();
+        currentglass.put("drinking",""+w);
+        currentglass.put("goal",""+gg);
+        df.set(currentglass);
+
+        DocumentReference db = fstore.collection("WateRec1").document(user.getUid());
+        LocalDate td = LocalDate.now();
+        String tds = td.format(DateTimeFormatter.ISO_DATE);
+        Map<String,Object> H2Oinfo = new HashMap<>();
+        H2Oinfo.put(tds,""+w);
+        db.set(H2Oinfo);
+
     }
 }
