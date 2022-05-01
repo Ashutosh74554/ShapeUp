@@ -204,10 +204,6 @@ public class MainActivity extends AppCompatActivity {
                         intent=new Intent(MainActivity.this,WaterTracker.class);
                         startActivity(intent);
                         break;
-                    case R.id.calorie_counter:
-                        intent=new Intent(MainActivity.this,CalorieCounter.class);
-                        startActivity(intent);
-                        break;
                     case R.id.progress_report:
                         intent=new Intent(MainActivity.this,ProgressReport.class);
                         startActivity(intent);

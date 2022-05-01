@@ -16,9 +16,14 @@
         android:theme="@style/Theme.ShapeUp">
         <activity
             android:name=".CommentsActivity"
-            android:parentActivityName=".MainActivity"
+            android:exported="false"
             android:label="Comments"
-            android:exported="false" />
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".waterRep"
+            android:exported="false"
+            android:label="Reports"
+            android:parentActivityName=".WaterTracker" />
         <activity
             android:name=".UpdateProfile"
             android:exported="false"
@@ -57,11 +62,6 @@
             android:name=".ProgressReport"
             android:exported="true"
             android:label="Progress Report"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".CalorieCounter"
-            android:exported="true"
-            android:label="Calorie Counter"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".WaterTracker"

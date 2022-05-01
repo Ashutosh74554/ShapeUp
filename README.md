@@ -8,8 +8,8 @@ This app uses Android studio (Java, XML) and Firebase.
 
  - See, like and comment the health blogs posted by the App admin
  - Track your water and calorie intake
- - Add reminders that help you out
- - See workout plans
+ - Add reminders that help you out 
+ - See workout plans 
  - Update your profile 
 
 # TODO
