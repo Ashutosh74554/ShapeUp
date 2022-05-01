@@ -15,6 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShapeUp">
         <activity
+            android:name=".MedicineRem"
+            android:exported="false"
+            android:label="Set Medicine Reminder"
+            android:parentActivityName=".Reminders"/>
+        <activity
             android:name=".WorkoutRem"
             android:exported="false"
             android:label="Set Workout Reminder"
