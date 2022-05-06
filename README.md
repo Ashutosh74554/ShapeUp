@@ -15,7 +15,6 @@ This app uses Android studio (Java, XML) and Firebase.
 # TODO
 
  - Change the UI to make it look better
- - Sync water tracker data with firebase-storage
     
 ## Contributing
 
