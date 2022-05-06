@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2b2b2b"
+    tools:context=".Fats">
+
+    <EditText
+        android:id="@+id/weight_fat"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="60dp"
+        android:inputType="numberDecimal"
+        android:hint="Enter weight (kg)"
+        android:textColor="@color/offWhite"
+        android:textColorHint="#D8D7D7"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/height_fat"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="60dp"
+        android:inputType="numberDecimal"
+        android:hint="Enter height (cm)"
+        android:textColor="@color/offWhite"
+        android:textColorHint="#D8D7D7"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weight_fat"/>
+
+    <EditText
+        android:id="@+id/age_fat"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="60dp"
+        android:inputType="number"
+        android:hint="Enter age"
+        android:textColor="@color/offWhite"
+        android:textColorHint="#D8D7D7"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/height_fat"/>
+
+    <EditText
+        android:id="@+id/neck_fat"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="60dp"
+        android:inputType="numberDecimal"
+        android:hint="Enter neck girth (cm)"
+        android:textColor="@color/offWhite"
+        android:textColorHint="#D8D7D7"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/age_fat"/>
+
+    <EditText
+        android:id="@+id/waist_fat"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="60dp"
+        android:inputType="numberDecimal"
+        android:hint="Enter waist (cm)"
+        android:textColor="@color/offWhite"
+        android:textColorHint="#D8D7D7"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/neck_fat"/>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:text="Gender"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/waist_fat" />
+
+    <RadioGroup
+        android:id="@+id/radGrp"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginStart="5dp"
+        android:orientation="horizontal"
+        android:tooltipText="Male"
+        app:layout_constraintStart_toEndOf="@id/textView6"
+        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/textView6">
+
+        <RadioButton
+            android:id="@+id/male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:textColor="@color/offWhite"/>
+
+        <RadioButton
+            android:id="@+id/female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:textColor="@color/offWhite"/>
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/hip_fat"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="60dp"
+        android:inputType="numberDecimal"
+        android:hint="Enter hip size (cm)"
+        android:textColor="@color/offWhite"
+        android:textColorHint="#D8D7D7"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radGrp"/>
+
+    <Button
+        android:id="@+id/check_fat"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Check"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:background="@drawable/login_butt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hip_fat"/>
+
+    <TextView
+        android:id="@+id/result_fat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textSize="20sp"
+        android:textColor="#F4B9B8"
+        app:layout_constraintTop_toBottomOf="@id/check_fat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

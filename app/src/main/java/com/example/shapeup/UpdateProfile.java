@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -56,6 +57,7 @@ public class UpdateProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_profile);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         image=findViewById(R.id.update_pic);
         profile_name=findViewById(R.id.update_name);
@@ -154,8 +156,6 @@ public class UpdateProfile extends AppCompatActivity {
     }
 
     private void saveToFirestore(Task<UploadTask.TaskSnapshot> task, String name, Uri downloadUri) {
-
-
         HashMap<String, Object> map=new HashMap<>();
         map.put("Name", name);
         map.put("Image", downloadUri.toString());
