@@ -9,9 +9,9 @@
 
     <ImageButton
         android:id="@+id/weightGain"
-        android:layout_width="330dp"
-        android:background="@color/white"
-        android:layout_height="188dp"
+        android:layout_width="400dp"
+        android:background="#2b2b2b"
+        android:layout_height="200dp"
         android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -20,12 +20,23 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/offWhite"
+        android:text="Weight Gain"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@id/weightGain"
+        app:layout_constraintEnd_toEndOf="@id/weightGain"
+        app:layout_constraintStart_toStartOf="@id/weightGain"/>
+
     <ImageButton
         android:id="@+id/leanGain"
         android:layout_width="330dp"
         android:layout_height="188dp"
         android:src="@drawable/lean_gain"
-        android:background="@color/white"
+        android:background="#2b2b2b"
         android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,4 +44,14 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/offWhite"
+        android:text="Lean Gain"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@id/leanGain"
+        app:layout_constraintEnd_toEndOf="@id/leanGain"
+        app:layout_constraintStart_toStartOf="@id/leanGain"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 
 public class Fats extends AppCompatActivity {
@@ -75,6 +76,9 @@ public class Fats extends AppCompatActivity {
                 if(gender.equalsIgnoreCase("Female")){
                     hip_fat.setVisibility(View.VISIBLE);
                 }
+                else{
+                    hip_fat.setVisibility(View.GONE);
+                }
             }
         });
 
@@ -98,35 +102,52 @@ public class Fats extends AppCompatActivity {
                     Toast.makeText(Fats.this, "All fields are required!!!", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    double bmi=weight/(height*height);
-                    double res=0,res1=0;
+                    double res=0;
                     if(gender.equalsIgnoreCase("female")){
                         res=((495)/(1.29579-0.35004*Math.log10(waist+hip-neck)+0.22100*Math.log10(height)))-450;
-                        if(age>=18){
-                            res1=1.20*bmi + 0.23*age -5.4;
-                        }
-                        else{
-                            res1=1.51*bmi - 0.70*age +1.4;
-                        }
                     }
                     else{
                         res=((495)/(1.0324-0.19077*Math.log10(waist-neck)+(0.15456*Math.log10(height))))-450;
-                        if(age>=18){
-                            res1=1.20*bmi + 0.23*age -16.2;
-                        }
-                        else{
-                            res1=1.51*bmi - 0.70*age -2.2;
-                        }
                     }
-                    result.setText("Your body fat (US Navy Method) is: "+res+"\n Your body fat (BMI Method) is: "+res1);
+
+                    res= Math.round(res*1000)/1000D;
+
+                    if(gender.equalsIgnoreCase("male")) {
+                        if(res<2)
+                            result.setText("Your body fat (US Navy Method) is: " + res + "\n Category: Malnutitioned");
+                        else if(res>=2 && res<=5)
+                            result.setText("Your body fat (US Navy Method) is: " + res + "\n Category: Essential fat");
+                        else if(res>=6 && res<=13)
+                            result.setText("Your body fat (US Navy Method) is: " + res + "\n Category: Athletes");
+                        else if(res>=14 && res<=17)
+                            result.setText("Your body fat (US Navy Method) is: " + res + "\n Category: Fitness");
+                        else if(res>=18 && res<=24)
+                            result.setText("Your body fat (US Navy Method) is: " + res + "\n Category: Average");
+                        else
+                            result.setText("Your body fat (US Navy Method) is: " + res + "\n Category: Obese");
+                    }
+                    else{
+                        if(res<10)
+                            result.setText("Your body fat (US Navy Method) is: " + res + "\n Category: Malnutitioned");
+                        else if(res>=10 && res<=13)
+                            result.setText("Your body fat (US Navy Method) is: " + res + "\n Category: Essential fat");
+                        else if(res>=14 && res<=20)
+                            result.setText("Your body fat (US Navy Method) is: " + res + "\n Category: Athletes");
+                        else if(res>=21 && res<=24)
+                            result.setText("Your body fat (US Navy Method) is: " + res + "\n Category: Fitness");
+                        else if(res>=25 && res<=31)
+                            result.setText("Your body fat (US Navy Method) is: " + res + "\n Category: Average");
+                        else
+                            result.setText("Your body fat (US Navy Method) is: " + res + "\n Category: Obese");
+                    }
 
                     if(prevfat>0){
                         if(prevfat>res){
-                            double change= prevfat-res;
+                            double change= Math.round((prevfat-res)*1000)/1000D;
                             Toast.makeText(Fats.this, "Fat % decreased by: "+change, Toast.LENGTH_LONG).show();
                         }
                         else if(prevfat<res){
-                            double change=res-prevfat;
+                            double change=Math.round((res-prevfat)*1000)/1000D;
                             Toast.makeText(Fats.this, "Fat % increased by: "+change, Toast.LENGTH_LONG).show();
                         }
                         else

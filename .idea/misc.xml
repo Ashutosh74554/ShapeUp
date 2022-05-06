@@ -3,15 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/MANAS Android Projects/ShapeUp/app/src/main/res/layout/activity_benchpr_video.xml" value="0.20833333333333334" />
-        <entry key="..\:/MANAS Android Projects/ShapeUp/app/src/main/res/layout/activity_chest_page.xml" value="0.2" />
-        <entry key="..\:/MANAS Android Projects/ShapeUp/app/src/main/res/layout/activity_lean_gain.xml" value="0.22447916666666667" />
-        <entry key="..\:/MANAS Android Projects/ShapeUp/app/src/main/res/layout/activity_shoulder_page.xml" value="0.22447916666666667" />
         <entry key="..\:/MANAS Android Projects/ShapeUp/app/src/main/res/layout/activity_wate_rep.xml" value="0.22447916666666667" />
         <entry key="..\:/MANAS Android Projects/ShapeUp/app/src/main/res/layout/activity_water_rep.xml" value="0.264" />
         <entry key="..\:/MANAS Android Projects/ShapeUp/app/src/main/res/layout/activity_water_tracker.xml" value="0.536" />
-        <entry key="..\:/MANAS Android Projects/ShapeUp/app/src/main/res/layout/activity_weight_gain.xml" value="0.22447916666666667" />
-        <entry key="..\:/MANAS Android Projects/ShapeUp/app/src/main/res/layout/activity_workout_plans.xml" value="0.22447916666666667" />
         <entry key="..\:/MANAS Android Projects/ShapeUp/app/src/main/res/layout/list_item.xml" value="0.22447916666666667" />
         <entry key="..\:/MANAS Android Projects/ShapeUp/app/src/main/res/menu/nav_menu.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2526041666666667" />
@@ -27,12 +21,14 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_bmi.xml" value="0.22239583333333332" />
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_calorie_counter.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_calories.xml" value="0.264" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_chest_page.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_comments.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_comments2.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_faqs.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_fats.xml" value="0.264" />
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_login.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_main.xml" value="0.23645833333333333" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_medicine_rem.xml" value="0.264" />
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_post.xml" value="0.264" />
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_progress_report.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_reminders.xml" value="0.264" />
@@ -41,7 +37,9 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_splash.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_update_profile.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_water_tracker.xml" value="0.23645833333333333" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_weight_gain.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_workout_plans.xml" value="0.23645833333333333" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/activity_workout_rem.xml" value="0.264" />
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/each_comment.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/each_post.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/user/AndroidStudioProjects/ShapeUp/app/src/main/res/layout/nav_header.xml" value="0.23645833333333333" />

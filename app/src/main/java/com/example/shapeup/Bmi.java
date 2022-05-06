@@ -71,6 +71,9 @@ public class Bmi extends AppCompatActivity {
                 double height=Double.parseDouble(height_bmi.getText().toString());
                 height= height/100;
                 double res= weight/(height*height);
+
+                res= Math.round(res*1000)/1000D;
+
                 if(res<18.5)
                     result.setText("Your BMI is: "+res+" \nYou are underweight");
                 else if(res>=18.5 && res<=24.9)
@@ -82,11 +85,11 @@ public class Bmi extends AppCompatActivity {
 
                 if(prevbmi>0){
                     if(prevbmi>res){
-                        double change= prevbmi-res;
+                        double change=Math.round((prevbmi-res)*1000)/1000D;
                         Toast.makeText(Bmi.this, "BMI decreased by: "+change, Toast.LENGTH_LONG).show();
                     }
                     else if(prevbmi<res){
-                        double change=res-prevbmi;
+                        double change=Math.round((res-prevbmi)*1000)/1000D;
                         Toast.makeText(Bmi.this, "BMI increased by: "+change, Toast.LENGTH_LONG).show();
                     }
                     else

@@ -42,8 +42,6 @@ public class WaterTracker extends AppCompatActivity {
     FirebaseAuth fAuth;
     TextView num, fixedTo,goaledits;
 
-    TextView num, fixedTo, water_report;
-
     EditText goalSetter;
     Button set;
     String current;
@@ -55,7 +53,6 @@ public class WaterTracker extends AppCompatActivity {
         setContentView(R.layout.activity_water_tracker);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        //edits
         fAuth = FirebaseAuth.getInstance();
         fstore= FirebaseFirestore.getInstance();
 
@@ -73,18 +70,6 @@ public class WaterTracker extends AppCompatActivity {
         }
 
         fixedTo.setCursorVisible(false);
-      
-        try{
-
-        }catch(NullPointerException e){
-            pb.setMax(12);
-            fixedTo.setText("of "+12+" glasses");
-
-            fixedTo.setText("of "+12+" glasses");
-
-        }
-
-
 
         set.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -213,11 +198,6 @@ public class WaterTracker extends AppCompatActivity {
 
         int w=Integer.parseInt(num.getText().toString());
         switch(w++){
-
-        int w=0;
-        w++;
-
-        switch(w){
             case 1:st1.setText("Great Job! ");
                 st2.setText("Grab tour next 250ml of water in 60 min");
                 num.setText(""+w);
@@ -291,12 +271,6 @@ public class WaterTracker extends AppCompatActivity {
         currentglass.put("goal",""+gg);
         df.set(currentglass);
 
-        DocumentReference db = fstore.collection("WateRec1").document(user.getUid());
-        LocalDate td = LocalDate.now();
-        String tds = td.format(DateTimeFormatter.ISO_DATE);
-        Map<String,Object> H2Oinfo = new HashMap<>();
-        H2Oinfo.put(tds,""+w);
-        db.set(H2Oinfo);
 
         pb.setProgress(w);
     }
@@ -307,8 +281,6 @@ public class WaterTracker extends AppCompatActivity {
         TextView num = findViewById(R.id.status);
 
         int w=Integer.parseInt(num.getText().toString());;
-
-        int w=0;
         if(w > 0)
             w--;
         if(w>x){
@@ -398,13 +370,6 @@ public class WaterTracker extends AppCompatActivity {
         currentglass.put("drinking",""+w);
         currentglass.put("goal",""+gg);
         df.set(currentglass);
-
-        DocumentReference db = fstore.collection("WateRec1").document(user.getUid());
-        LocalDate td = LocalDate.now();
-        String tds = td.format(DateTimeFormatter.ISO_DATE);
-        Map<String,Object> H2Oinfo = new HashMap<>();
-        H2Oinfo.put(tds,""+w);
-        db.set(H2Oinfo);
 
     }
 }

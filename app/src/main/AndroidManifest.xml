@@ -15,6 +15,46 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShapeUp">
         <activity
+            android:name=".MedicineRem"
+            android:exported="false"
+            android:label="Medicine Reminder"
+            android:parentActivityName=".Reminders"/>
+        <activity
+            android:name=".WorkoutRem"
+            android:exported="false"
+            android:label="Workout Reminder"
+            android:parentActivityName=".Reminders"/>
+        <activity
+            android:name=".WaterRem"
+            android:exported="false"
+            android:label="Water Reminder"
+            android:parentActivityName=".Reminders"/>
+        <activity
+            android:name=".LeanGain"
+            android:exported="false"
+            android:label="Lean Gain Workout Plans"
+            android:parentActivityName=".WorkoutPlans"/>
+        <activity
+            android:name=".WeightGain"
+            android:exported="false"
+            android:label="Weight Gain Workout Plans"
+            android:parentActivityName=".WorkoutPlans"/>
+        <activity
+            android:name=".benchprVIDEO"
+            android:exported="false"
+            android:label="Bench Press Tutorial"
+            android:parentActivityName=".chestPAGE"/>
+        <activity
+            android:name=".chestPAGE"
+            android:exported="false"
+            android:label="Chest Workouts"
+            android:parentActivityName=".WeightGain"/>
+        <activity
+            android:name=".shoulderPAGE"
+            android:exported="false"
+            android:label="Shoulder Workouts"
+            android:parentActivityName=".WeightGain"/>
+        <activity
             android:name=".CommentsActivity"
             android:exported="false"
             android:label="Comments"

@@ -151,6 +151,8 @@
         android:layout_marginTop="40dp"
         android:textSize="20sp"
         android:textColor="#F4B9B8"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@id/check_fat"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

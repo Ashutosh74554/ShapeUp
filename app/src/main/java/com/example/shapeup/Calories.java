@@ -78,6 +78,8 @@ public class Calories extends AppCompatActivity {
                     else
                         Toast.makeText(Calories.this, "Select activity level", Toast.LENGTH_SHORT).show();
 
+                    res= Math.round(res*100)/100D;
+
                     result.setText("Your maintenence calories: "+res);
                 }
             }

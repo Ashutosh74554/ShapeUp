@@ -38,7 +38,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="40dp"
         android:inputType="numberDecimal"
-        android:hint="Enter weight (kg)"
+        android:hint="Enter height (cm)"
         android:textColor="@color/offWhite"
         android:textColorHint="#D8D7D7"
         android:textSize="20sp"
@@ -66,6 +66,8 @@
         android:layout_marginTop="40dp"
         android:textSize="20sp"
         android:textColor="#F4B9B8"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/check_bmi"/>

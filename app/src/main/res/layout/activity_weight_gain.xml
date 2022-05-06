@@ -18,35 +18,24 @@
 
         <ImageButton
             android:id="@+id/imageButton19"
-            android:layout_width="321dp"
-            android:layout_height="169dp"
-            android:layout_marginTop="36dp"
-            android:onClick="legPG"
+            android:layout_width="400dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="30dp"
+            android:background="#2b2b2b"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/imageButton18"
-            app:layout_constraintStart_toStartOf="@+id/imageButton18"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton18"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton16"
+            app:layout_constraintStart_toStartOf="@+id/imageButton16"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton16"
+            app:layout_constraintVertical_bias="0.26"
             app:srcCompat="@drawable/legs"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
-            android:id="@+id/imageButton18"
-            android:layout_width="321dp"
-            android:layout_height="169dp"
-            android:layout_marginTop="40dp"
-            android:onClick="armsPG"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton16"
-            app:srcCompat="@drawable/arms"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <ImageButton
             android:id="@+id/imageButton16"
-            android:layout_width="321dp"
-            android:layout_height="169dp"
-            android:layout_marginTop="36dp"
-            android:onClick="backPG"
+            android:layout_width="400dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="50dp"
+            android:background="#2b2b2b"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButton14"
@@ -55,10 +44,10 @@
 
         <ImageButton
             android:id="@+id/imageButton14"
-            android:layout_width="321dp"
-            android:layout_height="169dp"
-            android:layout_marginTop="36dp"
-            android:onClick="absPG"
+            android:layout_width="405dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="50dp"
+            android:background="#2b2b2b"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,10 +57,10 @@
 
         <ImageButton
             android:id="@+id/shoulder"
-            android:layout_width="321dp"
-            android:layout_height="169dp"
-            android:layout_marginTop="36dp"
-            android:onClick="shoulderPG"
+            android:layout_width="400dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="50dp"
+            android:background="#2b2b2b"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -81,9 +70,10 @@
 
         <ImageButton
             android:id="@+id/chest"
-            android:layout_width="321dp"
-            android:layout_height="169dp"
+            android:layout_width="400dp"
+            android:layout_height="200dp"
             android:layout_marginTop="60dp"
+            android:background="#2b2b2b"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
@@ -91,26 +81,73 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chest"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/offWhite"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chest"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shoulders"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/offWhite"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shoulder"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Abs &amp; Core"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/offWhite"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageButton14"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/offWhite"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageButton16"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="Legs"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/offWhite"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageButton19"/>
+
+        <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
-            android:fontFamily="@font/marvel_bold"
-            android:text="GO HARDER "
-            android:textSize="40sp"
+            android:fontFamily="casual"
+            android:textStyle="bold"
+            android:text="GO HARDER"
+            android:textSize="45sp"
             android:textColor="@color/white"
-            app:layout_constraintEnd_toStartOf="@+id/imageView2"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="138dp"
-            android:layout_height="96dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="4dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
