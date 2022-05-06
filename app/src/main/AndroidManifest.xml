@@ -15,36 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShapeUp">
         <activity
-            android:name=".MedicineRem"
-            android:exported="false"
-            android:label="Set Medicine Reminder"
-            android:parentActivityName=".Reminders"/>
-        <activity
-            android:name=".WorkoutRem"
-            android:exported="false"
-            android:label="Set Workout Reminder"
-            android:parentActivityName=".Reminders" />
-        <activity
-            android:name=".WaterRem"
-            android:exported="false"
-            android:label="Set Water Reminder"
-            android:parentActivityName=".Reminders" />
-        <activity
-            android:name=".Calories"
-            android:exported="false"
-            android:label="Calories Requirement Calculator"
-            android:parentActivityName=".ProgressReport" />
-        <activity
-            android:name=".Bmi"
-            android:exported="false"
-            android:label="BMI Calculator"
-            android:parentActivityName=".ProgressReport" />
-        <activity
-            android:name=".Fats"
-            android:exported="false"
-            android:label="Fat Percentage Calculator"
-            android:parentActivityName=".ProgressReport" />
-        <activity
             android:name=".CommentsActivity"
             android:exported="false"
             android:label="Comments"

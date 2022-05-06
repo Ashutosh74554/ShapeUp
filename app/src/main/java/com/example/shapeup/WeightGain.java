@@ -8,31 +8,31 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class WorkoutPlans extends AppCompatActivity {
+public class WeightGain extends AppCompatActivity {
 
-    ImageView weightG,leanG;
+    ImageView chest ,shoulder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_workout_plans);
+        setContentView(R.layout.activity_weight_gain);
 
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        weightG = findViewById(R.id.weightGain);
-        leanG  = findViewById(R.id.leanGain);
+        chest = findViewById(R.id.chest);
+        shoulder = findViewById(R.id.shoulder);
 
-        weightG.setOnClickListener(new View.OnClickListener() {
+        chest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(WorkoutPlans.this,WeightGain.class));
-            }
-        });
-        leanG.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(WorkoutPlans.this,LeanGain.class));
+                startActivity(new Intent(WeightGain.this,chestPAGE.class));
             }
         });
 
+        shoulder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WeightGain.this,shoulderPAGE.class));
+            }
+        });
     }
 }
