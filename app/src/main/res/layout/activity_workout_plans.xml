@@ -7,4 +7,30 @@
     android:background="#2B2B2B"
     tools:context=".WorkoutPlans">
 
+    <ImageButton
+        android:id="@+id/weightGain"
+        android:layout_width="330dp"
+        android:background="@color/white"
+        android:layout_height="188dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/weight_gain"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/leanGain"
+        android:layout_width="330dp"
+        android:layout_height="188dp"
+        android:src="@drawable/lean_gain"
+        android:background="@color/white"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

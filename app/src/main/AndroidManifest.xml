@@ -15,6 +15,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShapeUp">
         <activity
+            android:name=".benchprVIDEO"
+            android:exported="false"
+            android:parentActivityName=".chestPAGE"/>
+        <activity
+            android:name=".shoulderPAGE"
+            android:exported="false"
+            android:parentActivityName=".WeightGain"/>
+        <activity
+            android:name=".chestPAGE"
+            android:exported="false"
+            android:parentActivityName=".WeightGain"/>
+        <activity
+            android:name=".LeanGain"
+            android:exported="false"
+            android:parentActivityName=".WorkoutPlans"/>
+        <activity
+            android:name=".WeightGain"
+            android:exported="false"
+            android:parentActivityName=".WorkoutPlans"/>
+        <activity
             android:name=".CommentsActivity"
             android:exported="false"
             android:label="Comments"
