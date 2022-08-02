@@ -1,12 +1,12 @@
 ﻿# Shape Up
 
-Shape up is a simple  native-android app which can help people be fitter and healthier by helping them in various aspects ranging from diet, workout plans to track their progress. 
+Shape up is a native-android app which can help people be fitter and healthier by helping them in various aspects ranging from diet, workout plans to track their progress. 
 
 This app uses Android studio (Java, XML) and Firebase.
 
 ## Features
 
- - See, like and comment the health blogs posted by the App admin
+ - See, like and comment on the health blogs posted by the App admin
  - Track your water and calorie intake
  - Add reminders that help you out 
  - See workout plans 
